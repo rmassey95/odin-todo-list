@@ -27,6 +27,8 @@ formSubmit.addEventListener('click', (e) => {
     updateTask.updateDate(task, inputs[3].value);
   };
 
+//branch - Optimize
+
   document.querySelector('.form-container').style.display = 'none';
   inputs.forEach(input => {
     input.value = '';
