@@ -1,10 +1,78 @@
-import { displayForm, taskList } from './modules/tasks';
+import { displayForm, taskList, Task, updateTask } from './modules/tasks';
 const _ = require('lodash');
 
 
 const DOM = (() => {
   const mainContent = document.querySelector('.main-content');
   
+  const btnClick = () => {
+    let index = 0;
+
+    const formSubmit = document.querySelector('.form-submit');
+    const remove = document.querySelector('.delete');
+    const allTasks = document.querySelector('#tasks');
+    const projs = document.querySelector('#proj');
+
+    formSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const inputs = document.querySelectorAll('input');
+      const select = document.querySelector('#prio');
+      const tasks = taskList.getTaskList();
+    
+      if (inputs[4].value === ''){
+        taskList.add(Task(index,inputs[0].value, inputs[1].value, select.value, inputs[2].value, inputs[3].value));
+        index++;
+      } else {
+        const task = tasks.find(({i}) => i === parseInt(inputs[4].value));
+        updateTask.updateTitle(task, inputs[0].value);
+        updateTask.updateDesc(task, inputs[1].value);
+        updateTask.updateProj(task, inputs[2].value);
+        updateTask.updatePrio(task, select.value);
+        updateTask.updateDate(task, inputs[3].value);
+      };
+    
+      document.querySelector('.form-container').style.display = 'none';
+      inputs.forEach(input => {
+        input.value = '';
+      });
+    
+      select.value = 'high';
+    
+      displayTasks(taskList.getTaskList());
+    });
+
+    remove.addEventListener('click', (e) => {
+      e.preventDefault();
+      const inputs = document.querySelectorAll('input');
+      const select = document.querySelector('#prio');
+    
+      taskList.removeTask(parseInt(document.querySelector('#index').value));
+      document.querySelector('.form-container').style.display = 'none';
+      
+      displayTasks(taskList.getTaskList());
+      inputs.forEach(input => {
+        input.value = '';
+      });
+      select.value = 'high';
+      document.querySelector('.delete').style.display = 'none';
+    })
+
+    allTasks.addEventListener('click', (e) => {
+      clearScreen();
+    
+      displayTasks(taskList.getTaskList());
+    })
+    
+    projs.addEventListener('click', () => {
+      clearScreen();
+    
+      displayProjs(taskList.getTaskList());
+    })
+    
+    displayTasks(taskList.getTaskList());
+
+  }
+
   const displayTasks = (tasks) => {
     taskList.saveTasks();
     const btn = taskBtn();
@@ -25,8 +93,6 @@ const DOM = (() => {
     });
     addClicker();
     mainContent.appendChild(btn);
-
-    
   }
 
   const displayProjs = (tasks) => {
@@ -111,7 +177,7 @@ const DOM = (() => {
     const btn = taskBtn();
   };
 
-  return {displayTasks, clearScreen, displayProjs};
+  return {displayTasks, btnClick};
 })();
 
 export {DOM};

@@ -39,6 +39,8 @@ const taskList = (() => {
     tasks.push(task);
   }
 
+  const taskLength = () => tasks.length;
+
   const removeTask = (index) => {
     const arrIndex = getTaskList().findIndex(x => x.i === index);
     tasks.splice(arrIndex,1);
@@ -56,7 +58,7 @@ const taskList = (() => {
 
   const getTaskList = () => tasks;
 
-  return { add, getTaskList, removeTask, saveTasks, pageLoadTasks };
+  return { add, getTaskList, removeTask, saveTasks, pageLoadTasks, taskLength };
 })();
 
 const displayForm = () => {
