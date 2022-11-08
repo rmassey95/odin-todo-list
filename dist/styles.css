@@ -1,0 +1,104 @@
+body{
+  margin: 0;
+}
+
+.content{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 180px auto;
+  grid-template-columns: max(200px, 18%) auto;
+}
+
+.header h1{
+  margin: 0;
+}
+
+.header{
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  background-color: rgb(61, 61, 61);
+  color: white;
+  padding-left: 15px;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  background-color: rgb(224, 224, 224);
+}
+
+.sidebar button, .add-task, .btn{
+  margin-left: 20px;
+  width: auto;
+  height: 50px;
+  font-size: 1em;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.sidebar button:hover{
+  background-color: white;
+  cursor: pointer;
+}
+
+.add-task:hover, .btn:hover{
+  cursor: pointer;
+  background-color:  rgb(224, 224, 224);
+}
+
+.index{
+  display: none;
+}
+
+.form-container{
+  display: none;
+  position: fixed;
+}
+
+.delete{
+  display: none;
+}
+
+select{
+  width: 185px;
+  height: 25px;
+}
+
+.form{
+  position: fixed;
+  display: flex;
+  height: auto;
+  width: auto;
+  left: 20%;
+  top: 20%;
+  background-color: rgb(146, 146, 146);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 50px;
+}
+
+.form-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+}
+
+.main-content{
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+}
+
+.med{
+  background-color: yellow;
+}
+
+.high{
+  background-color: red;
+}

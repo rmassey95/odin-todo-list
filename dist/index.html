@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <div class="content">
+    <div class="header"><h1>ToDo List</h1></div>
+    <div class="sidebar">
+      <!-- <button>Today</button> -->
+      <button id="tasks">All Tasks</button>
+      <button id="proj">Your Projects</button>
+    </div>
+    <div class="main-content">
+    </div>
+    <div class="form-container">
+      <form action="" class="form">
+        <div class="form-item">
+          <label for="title">Title:</label>
+          <input id="title" type="text">
+        </div>
+        <div class="form-item">
+          <label for="desc">Description:</label>
+          <input id="desc" type="text">
+        </div>
+        <div class="form-item">
+          <label for="prio">Priority:</label>
+          <select name="prio" id="prio">
+            <option value="high" selected>High</option>
+            <option value="med">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label for="proj">Project:</label>
+          <input type="text" id="proj">
+        </div>
+        <div class="form-item">
+          <label for="date">Due Date:</label>
+          <input type="date" id="date">
+        </div>
+        <div class="index">
+          <input id="index" type="text">
+        </div>
+        <button class="form-submit">Submit</button>
+        <button class="delete">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  
+
+  <script src="main.js"></script>
+</body>
+</html>
